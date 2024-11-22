@@ -1,6 +1,13 @@
-    <footer>
-            <p>&copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?></p>
+<footer class="footer text-center py-2 theme-bg-dark">
+            
+            <p class="copyright"><a href="https://youtube.com/FollowAndrew">Follow Jovic</a></p>
+        
         </footer>
-        <?php wp_footer(); ?>
-        </body>
-    </html>
+    
+    </div>
+
+<?php
+            wp_footer();
+        ?>
+    </body>
+    </html> 

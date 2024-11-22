@@ -1,5 +1,29 @@
 <?php
 
+function jovic_theme_support_titles(){
+//add dynamically generated title for the pages with the help of wordpress
+add_theme_support('title-tag');
+
+}
+
+// Function to register navigation menus in WordPress
+function jovicbiralo_menus() {
+    // Array to define menu locations and their descriptions
+    $locations = array(
+        'primary' => 'Desktop Primary Left Sidebar', // Main navigation menu, typically displayed in the header but am displayinf this on the left please.. like side bar
+        'footer' => 'Footer Menu Items' // Footer navigation menu, typically displayed in the footer
+    );
+
+    // Register the defined menu locations with WordPress
+    register_nav_menus($locations);
+}
+
+// Hook to initialize custom functionality
+// The 'init' hook runs early in the WordPress lifecycle and is used for tasks like registering menus, custom post types, and taxonomies
+add_action('init', 'jovicbiralo_menus');
+
+add_action('after_setup_theme', 'jovic_theme_support_titles');
+
 function followjovic_register_styles() {
 
     $version = wp_get_theme()->get('Version');
@@ -28,7 +52,7 @@ function followjovic_register_scripts() {
 
     wp_enqueue_script('followjovic_bootstrap', "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js", array(), '4.4.1', 'all',true);
 
-    wp_enqueue_script('followjovic_bootstrap', get_template_directory_uri() . "/assests/js/main.js", array(), '1.0', 'all',true);
+    wp_enqueue_script('followjovic_mainjs', get_template_directory_uri() . "/assets/js/main.js", array(), '1.0', 'all',true);
 
     
     
