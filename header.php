@@ -8,14 +8,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Blog Site Template">
         <meta name="author" content="https://youtube.com/FollowAndrew">
-        <link rel="shortcut icon" href="images/logo.png">
+        <link rel="shortcut icon" href="/wp-content/themes/CUSTOME-THEME/assests/images/logo.png">
         
 
         <?php
         wp_head();
         ?>
 
-    </head> 
+    </head>
 
     <body>
         
@@ -29,7 +29,13 @@
                 </button>
 
                 <div id="navigation" class="collapse navbar-collapse flex-column" >
-                    <img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo" >			
+                    <!-- Displaying custom logo for the site as imported by the user -->
+                        <?php
+                        if (function_exists('the_custom_logo')) {
+                            the_custom_logo();
+                        }
+                        ?>
+                    <img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo" >
                     
                     <ul class="navbar-nav flex-column text-sm-center text-md-left">
                         <li class="nav-item active">
