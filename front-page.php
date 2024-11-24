@@ -16,7 +16,7 @@ get_header();
 
             // Here, you would typically include code to display the post's title, content, or other elements.
             // Example: echo the title and content of the post.
-            the_title('<h2>', '</h2>'); // Display the post title in an H2 tag.
+            // the_title('<h2>', '</h2>'); // Display the post title in an H2 tag.
             the_content(); // Display the full content of the post.
         }
     } else {

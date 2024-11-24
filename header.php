@@ -20,7 +20,11 @@
     <body>
         
         <header class="header text-center">
-            <a class="site-title pt-lg-4 mb-0" href="index.html">SiteName.dev</a>
+            <a class="site-title pt-lg-4 mb-0" href="index.html">
+                <!-- getting a dynmic site name also -->
+                <?php echo get_bloginfo('name'); ?>
+                <!-- above is the way you get the site name dyanmically from word press -->
+            </a>
             
             <nav class="navbar navbar-expand-lg navbar-dark" >
             
@@ -32,12 +36,30 @@
                     <!-- Displaying custom logo for the site as imported by the user -->
                         <?php
                         if (function_exists('the_custom_logo')) {
-                            the_custom_logo();
+                            // the_custom_logo();
+                            // designing th logo to my own design not wrpress.... basicaly custmization the log unploaded by the user
+                            $custom_logo_id =get_theme_mod('custom_logo');
+                            $logo =wp_get_attachment_image_src($custom_logo_id);
+                            // print_r($logo);
                         }
                         ?>
-                    <img class="mb-3 mx-auto logo" src="images/logo.png" alt="logo" >
+                    <img class="mb-3 mx-auto logo" src="<?php echo $logo[0] ?>" alt="logo" >
+
+                    <?php
+                    // here we are using the wordpress fuction to disply our side bar manue dyanmically and this menue here is called primary
+                    wp_nav_menu(
+                        array(
+                            'menu' => 'primary',
+                            'container' => '',
+                            'them_location' => 'primary', /// so whan a user selects locaation primary .. this side bar is the one selected when a user seets to primary
+                            'item_wrap' => '<ul id="" class="navbar-nav flex-column text-sm-center text-md-left" > %3$s </ul>'
+                        )
+                    )
+
+
+                    ?>
                     
-                    <ul class="navbar-nav flex-column text-sm-center text-md-left">
+                    <!-- <ul class="navbar-nav flex-column text-sm-center text-md-left">
                         <li class="nav-item active">
                             <a class="nav-link" href="index.html"><i class="fas fa-home fa-fw mr-2"></i>Blog Home <span class="sr-only">(current)</span></a>
                         </li>
@@ -53,7 +75,7 @@
                         <li class="nav-item">
                             <a class="nav-link btn btn-primary" href="contact.html"><i class="fas fa-envelope fa-fw mr-2"></i>Contact Us</a>
                         </li>
-                    </ul>
+                    </ul> -->
                     <hr>
                     <ul class="social-list list-inline py-3 mx-auto">
                         <li class="list-inline-item"><a href="#"><i class="fab fa-twitter fa-fw"></i></a></li>

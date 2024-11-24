@@ -9,6 +9,8 @@ add_theme_support('custom-logo', array(
     'flex-height' => true,
     'flex-width'  => true,
 ));
+// this support below is for adding images in for our post ..like make sure a user can add images in the post
+// add_theme_support('post_thubnails');
 
 }
 
