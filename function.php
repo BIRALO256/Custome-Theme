@@ -105,4 +105,26 @@ function followjovic_register_scripts() {
 // Hook to enqueue styles on the front-end
 add_action('wp_enqueue_scripts', 'followjovic_register_scripts');
 
+//here basically we are trying to create widgets for the system
+
+function followjovic_widget_area(){
+    
+    register_sidebr(
+        array(
+            'before_title' => '',
+            'after_title' => '',
+            'before_widget' => '',
+            'after_widget' => '',
+        ),
+        array(
+             'name' => 'Sidebar Area',
+             'id' => 'sidebar-1',
+             'description' => 'Sidebar Widget Area',
+        )
+        );
+
+}
+
+add_action('Widgets_init','followjovic_widget_area');
+
 ?>
